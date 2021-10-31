@@ -14,3 +14,4 @@ RUN mvn package
 RUN aws s3 cp /home/ubuntu/boxfuse-sample-java-war-hello/target/hello-1.0.war s3://mybucket.test.com/hello.war
 
 
+

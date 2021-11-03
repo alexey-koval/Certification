@@ -1,0 +1,9 @@
+---
+- name: Ensure configuration on Buildserver
+  hosts: all
+  become: yes
+  remote_user: ubuntu
+  become_user: root
+  roles:
+    - role: common
+    - role: build

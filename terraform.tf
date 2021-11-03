@@ -19,24 +19,25 @@ resource "aws_key_pair" "devops" {
 
 #Create Buildserver instance
 resource "aws_instance" "Buildserver" {
-  ami = "ami-05f7491af5eef733a"
-  instance_type = "t2.micro"
-  key_name = "devops"
-  security_groups = ["MSG"]
-  subnet_id = "subnet-694bd825"
+  ami             = "ami-05f7491af5eef733a"
+  instance_type   = "t2.micro"
+  key_name        = "devops"
+  security_groups = [ "MSG" ]
+  subnet_id       = "subnet-694bd825"
+  tags = {
+    Name = "Buildserver"
+  }
 }
 
 #Create Production instance
 resource "aws_instance" "Production" {
-  ami = "ami-05f7491af5eef733a"
-  instance_type = "t2.micro"
-  key_name = "devops"
-  security_groups = ["MSG"]
-  subnet_id = "subnet-694bd825"
+  ami             = "ami-05f7491af5eef733a"
+  instance_type   = "t2.micro"
+  key_name        = "devops"
+  security_groups = [ "MSG" ]
+  subnet_id       = "subnet-694bd825"
+  tags = {
+    Name = "Production"
+  }
 }
-output "buildserver_ip" {
-  value = aws_instance.buildserver.public_ip
-}
-output "production_ip" {
-  value = aws_instance.production.public_ip
-}
+

@@ -1,6 +1,4 @@
 ---
-- name: install packages
-  apt:
-    pkg:
-      - docker.io
-      - awscli
+- name: Ensure docker image is present
+  docker_image:
+    name: kovalalexey/build-node

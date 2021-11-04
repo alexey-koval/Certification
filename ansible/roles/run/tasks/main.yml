@@ -1,0 +1,4 @@
+---
+- name: Ensure docker image is present
+  docker_image:
+    name: kovalalexey/prod-node

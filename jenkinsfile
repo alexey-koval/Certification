@@ -1,2 +1,34 @@
 pipeline {
-}
+    agent any
+    stages {
+        stage ('Create infrastructure') {
+            steps {
+                 dir (path: 'terraform') {
+                    sh 'terraform init'
+                    sh 'terraform apply --auto-approve'
+                    }
+                }
+            }
+        stage ('Provision Buildserver') {
+            steps {
+                dir (path: 'ansible') {
+                    sh 'ansible=playbook1 buildserver -i inventory -l buildserver --doff'
+                    }
+                }
+            }
+        stage ('Provision Production') {
+            steps {
+                dir (path: 'ansible') {
+                    sh 'ansible=playbook production -i inventory production --diff'
+                    }
+                }
+            }
+        stage ('Destroy') {
+            steps {
+                dir (path: 'terraform') {
+                    sh 'terraform destroy --auto-approve'
+                    }
+                }
+            }
+        }
+    }

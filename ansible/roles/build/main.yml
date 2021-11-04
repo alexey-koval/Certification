@@ -1,6 +1,0 @@
----
-- name: install packages
-  apt:
-    pkg:
-      - docker.io
-      - awscli

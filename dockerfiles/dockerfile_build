@@ -12,6 +12,3 @@ RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 WORKDIR home/ubuntu/boxfuse-sample-java-war-hello/
 RUN mvn package
 RUN aws s3 cp /home/ubuntu/boxfuse-sample-java-war-hello/target/hello-1.0.war s3://mybucket.test.com/hello.war
-
-
-

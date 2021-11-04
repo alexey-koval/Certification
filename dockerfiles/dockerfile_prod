@@ -10,6 +10,3 @@ RUN apt install awscli tomcat9 -y
 RUN aws s3 cp s3://mybucket.test.com/hello.war /usr/local/tomcat/webapps/hello.war
 EXPOSE 8080
 CMD [ "\usr\local\tomcat\bin\catlina.sh", "run"]
-
-
-

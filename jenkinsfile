@@ -19,7 +19,7 @@ pipeline {
         stage ('Provision Production') {
             steps {
                 dir (path: 'ansible') {
-                    sh 'ansible=playbook production -i inventory production --diff'
+                    sh 'ansible=playbook2 production -i inventory production --diff'
                     }
                 }
             }

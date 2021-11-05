@@ -4,4 +4,6 @@
     pkg:
       - docker.io
       - awscli
-- name: #авторизация на aws
+- name: aws authentification
+  ec2:
+     key_name: devops
